@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'pages#index'
-
-  resources :membres
-  resources :offres
-  resources :entreprises
+  devise_for :entreprises, path: 'entreprises', controllers: { sessions: 'entreprises/sessions' }
 
   get '/',            to: 'pages#index',      as: 'index'
   get '/aide',        to: 'pages#aide',       as: 'aide'
-  get '/register',    to: 'membres#new',      as: 'register'
+  get '/recruter',    to: 'pages#recruter',   as: 'recruter'
+
+  root to: 'pages#index'
 end

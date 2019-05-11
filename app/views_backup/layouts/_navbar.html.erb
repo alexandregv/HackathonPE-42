@@ -13,36 +13,34 @@
 
   <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
-      <a href="<%# offres_path %>" class="navbar-item <%= id_active('offres', 'index') %>">
+      <a href="<%= offres_path %>" class="navbar-item <%= id_active('offres', 'index') %>">
   	  <span class="icon has-text-grey-lighter"><i class="fas fa-book"></i></span>
   	  <span>Offres<span>
   	</a>
-    <a href="<%# membres_path %>" class="navbar-item <%= id_active('membres', 'index') %>">
+    <a href="<%= membres_path %>" class="navbar-item <%= id_active('membres', 'index') %>">
   	  <span class="icon has-text-warning"><i class="fas fa-star"></i></span>
   	  <span>Membres<span>
   	</a>
-  	<a href="<%# aide_path %>" class="navbar-item <%= id_active('pages', 'aide') %>">
+  	<a href="<%= aide_path %>" class="navbar-item <%= id_active('pages', 'aide') %>">
   	  <span class="icon has-text-danger"><i class="fas fa-heart"></i></span>
   	  <span>Aide<span>
   	</a>
     </div>
 
     <div class="navbar-end">
-      <% if entreprise_signed_in? %>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">Mon entreprise</a>
-          <div class="navbar-dropdown">
-	      <a href="<?= Helpers::route('Users#profile') ?>" class="navbar-item">Mon profil</a>
-            <a href="<?= Helpers::route('Users#settings') ?>" class="navbar-item">Mes paramètres</a>
-            <hr class="navbar-divider">
-            <a href="<%= destroy_entreprise_session_path %>" class="navbar-item">Déconnexion</a>
-          </div>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">Mon compte</a>
+        <div class="navbar-dropdown">
+		<a href="<?= Helpers::route('Users#profile') ?>" class="navbar-item">Mon profil</a>
+          <a href="<?= Helpers::route('Users#settings') ?>" class="navbar-item">Mes paramètres</a>
+    	  <hr class="navbar-divider">
+    	  <a href="<?= Helpers::route('Users#logout') ?>" class="navbar-item">Déconnexion</a>
         </div>
-      <% end %>
+      </div>
       <div class="navbar-item">
         <div class="buttons">
-          <a href="<%# new_membre_session_path %>" class="button is-primary gradient"><strong>Trouver un emploi</strong></a>
-          <a href="<%= recruter_path %>" class="button is-light">Trouver votre candidat</a>
+          <a href="<%= register_path %>" class="button is-primary gradient"><strong>Trouver un job</strong></a>
+          <a href="<%= register_path %>" class="button is-light">Se connecter</a>
         </div>
       </div>
     </div>
