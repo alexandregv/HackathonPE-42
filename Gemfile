@@ -64,3 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Custom gems
 gem 'bulma-rails', '~> 0.7.4'
 gem 'devise'
+gem 'toastr-rails'

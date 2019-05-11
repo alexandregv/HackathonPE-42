@@ -13,11 +13,11 @@
 
   <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
-      <a href="<%# offres_path %>" class="navbar-item <%= id_active('offres', 'index') %>">
+      <a href="<%# candidats_path %>" class="navbar-item <%= id_active('candidats', 'index') %>">
   	  <span class="icon has-text-grey-lighter"><i class="fas fa-book"></i></span>
   	  <span>Offres<span>
   	</a>
-    <a href="<%# membres_path %>" class="navbar-item <%= id_active('membres', 'index') %>">
+    <a href="<%# entreprises_path %>" class="navbar-item <%= id_active('entreprises', 'index') %>">
   	  <span class="icon has-text-warning"><i class="fas fa-star"></i></span>
   	  <span>Membres<span>
   	</a>
@@ -28,12 +28,22 @@
     </div>
 
     <div class="navbar-end">
-      <% if entreprise_signed_in? %>
+      <% if candidat_signed_in? %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">Mon compte</a>
+          <div class="navbar-dropdown">
+            <a href="<%= edit_candidat_registration_path %>" class="navbar-item">Mon profil</a>
+            <a href="" class="navbar-item">Mes paramètres</a>
+            <hr class="navbar-divider">
+            <a href="<%= destroy_candidat_session_path %>" class="navbar-item">Déconnexion</a>
+          </div>
+        </div>
+      <% elsif entreprise_signed_in? %>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Mon entreprise</a>
           <div class="navbar-dropdown">
-	      <a href="<?= Helpers::route('Users#profile') ?>" class="navbar-item">Mon profil</a>
-            <a href="<?= Helpers::route('Users#settings') ?>" class="navbar-item">Mes paramètres</a>
+            <a href="<%= edit_entreprise_registration_path %>" class="navbar-item">Profil de l'entreprise</a>
+            <a href="" class="navbar-item">Paramètres</a>
             <hr class="navbar-divider">
             <a href="<%= destroy_entreprise_session_path %>" class="navbar-item">Déconnexion</a>
           </div>

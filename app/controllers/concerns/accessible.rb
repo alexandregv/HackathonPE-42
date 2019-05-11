@@ -8,12 +8,10 @@ module Accessible
   def check_user
     if current_entreprise
       flash.clear
-      # if you have rails_admin. You can redirect anywhere really
-      redirect_to(authenticated_entreprise_root_path) && return
-    elsif current_membre
+      redirect_to(recruter_path) && return
+    elsif current_candidat
       flash.clear
-      # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
-      redirect_to(authenticated_membre_root_path) && return
+      redirect_to(candidater_path) && return
     end
   end
 end
