@@ -7,6 +7,10 @@ module ApplicationHelper
     ['Hackathon', content_for(:title)].compact.join(separator)
   end
 
+  def no_container()
+    content_for(:no_container)
+  end
+
   def no_turbolinks
     content_for(:turbolinks){ "data-turbolinks=false" }
   end

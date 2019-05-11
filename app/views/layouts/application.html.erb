@@ -11,14 +11,18 @@
 
   <body>
     <main>
-    <section class="section">
-      <div class="container">
-        <%= render 'layouts/navbar' %>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-        <%= render 'layouts/flash' %>
-        <%= yield %>
-      </div>
-    </section>
+    <% unless no_container %>
+      <section class="section">
+        <div class="container">
+    <% end %>
+            <%= render 'layouts/navbar' %>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+            <%= render 'layouts/flash' %>
+            <%= yield %>
+     <% unless no_container %>
+          </div>
+      </section>
+    <% end %>
   </body>
 </html>
