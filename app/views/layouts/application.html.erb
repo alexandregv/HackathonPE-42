@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> 
+<html class="has-navbar-fixed-top">
   <head>
     <title><%= page_title %></title>
     <%= csrf_meta_tags %>
@@ -10,7 +10,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <%= yield %>
+    <main>
+    <section class="section">
+      <div class="container">
+        <%= render 'layouts/navbar' %>
+        <%= yield %>
+      </div>
+    </section>
   </body>
 </html>

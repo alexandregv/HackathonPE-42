@@ -1,0 +1,46 @@
+<div class="columns is-centered">
+  <div class="box column is-one-third">
+    <%= form_with(model: membre, local: true) do |form| %>
+      <% if membre.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(membre.errors.count, "error") %> prohibited this membre from being saved:</h2>
+
+          <ul>
+          <% membre.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.label :mail, class: 'label' %>
+        <%= form.text_field :mail, class: 'input', placeholder: 'jean.dupont@hotmail.fr' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :nom, class: 'label' %>
+        <%= form.text_field :nom, class: 'input' , placeholder: 'Dupont' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :prenom, class: 'label' %>
+        <%= form.text_field :prenom, class: 'input', placeholder: 'Jean' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :age, class: 'label' %>
+        <%= form.number_field :age, class: 'input', placeholder: '45' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :type, 'Catégorie', class: 'label' %>
+        <div class=" select">
+          <%= form.select :type, {"Demandeur d'emploi" => 'chomeur', "Entreprise" => 'entreprise'} %>
+        </div>
+      </div>
+
+      <%= form.submit "Je m'inscris", class: 'button is-link is-medium is-rounded is-fullwidth' %>
+    <% end %>
+  </div>
+</div>
